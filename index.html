@@ -18,7 +18,10 @@
         const root = ReactDOM.createRoot(domContainer);
 
         const reactElement = React.createElement('h1', 
-            null, 
+            {
+                title: "Hello",
+                className: "heading"
+            }, 
             "Text",
         );
 
