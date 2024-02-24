@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        console.log(React.version);
+        // DOM 
+        const h1Dom = document.createElement('h1');
+        h1Dom.title = "hello";
+        h1Dom.className = "heading";
+        h1Dom.innerText = "h1 dom";
+        document.body.appendChild(h1Dom);
+
+        // React: React.createElement(type, props, ... children)
+        const h1React = React.createElement('h1', {
+            title: "hello",
+            className: "heading",
+
+        }, 'h1 React');
+        console.dir(h1React);
+
+
+        // ReactDOM
+        const root = document.getElementById('root');
+        const rootReact = ReactDOM.createRoot(root);
+
+        rootReact.render(h1React);
+
+
+    </script>
+</body>
+</html>
