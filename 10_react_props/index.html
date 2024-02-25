@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // ============ React Element, props là:
+        // 1. các thuộc tính của thẻ
+        // 2. class, for => className, htmlFor
+
+        // ============ React Component, props là:
+        // 1. đối số của component
+        // EX:
+        function PostItem(props)
+        {
+            console.log(props);
+        }
+
+        const app = (
+            <div className="wrapper">
+                <PostItem 
+                    title="test title"
+                />
+            </div>
+        )
+
+        root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(app);
+
+        // prop "key" là prop đặt biệt
+        // prop muốn truyền dữ liệu gì cũng được
+        
+        // destructuring khi truyền props
+        function PostItem({a, b, c})
+        {
+            console.log(a, b, c);
+        }
+
+    </script>
+</body>
+</html>

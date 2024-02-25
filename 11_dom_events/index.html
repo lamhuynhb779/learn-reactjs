@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // boolean, Null, undefined => sẽ không được render ra
+
+        // UI Component : chỉ chứa UI chứ không xử lý
+        function ComponentUI({clickMe})
+        {
+            return (
+                <h1 onClick={clickMe}>ReactJS</h1>
+            )
+        }
+
+        // UI Component, Object
+        const Form = {
+            Input() {
+                return <input type="text"/>
+            },
+            Checkbox() {
+                return <input type="checkbox"/>
+            },
+        };
+
+        // Component
+        function Button({title, href, onClick}) {
+
+            // Viết hoa tên biến để có thể truyền như 1 tag
+            let Component = 'button';
+
+            const props = {};
+
+            if (href) {
+                props.href = href;
+                Component = 'a';
+            }
+            if (onClick) {
+                props.onClick = onClick;
+            }
+
+            return (
+                <Component {...props}>{title}</Component>
+            )
+        }
+
+
+        // container
+        function App()
+        {
+            // useCallback
+            const handleClick = (event) => {
+                console.log(event.target.innerText);
+            }
+
+            const type = 'Input';
+            const FormByType = Form[type]; 
+
+            return (
+                <div id="wrapper">
+                    <button onClick={() => console.log(Math.random())}>
+                        Click me!
+                    </button>
+                    <ComponentUI
+                        clickMe={handleClick}
+                    />
+                    <FormByType />
+                    <Form.Checkbox />
+                    <Button 
+                        title="Touch me!"
+                        href="https://google.com"
+                        onClick={() => console.log(Math.random())}
+                    />
+                </div>
+            )
+        }
+
+
+        root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
