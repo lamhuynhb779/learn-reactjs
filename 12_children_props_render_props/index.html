@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+
+        function List({data, children}) {
+            console.log(data);
+            return (
+                <ul>
+                    {data.map((item) => children(item))}    
+                </ul>
+            )
+        }
+
+        function App() {
+
+            const cars = ['Honda', 'Mazda', 'Huynhdai'];
+
+            return (
+                <div id="wrapper">
+                    <List data={cars}>
+                        {(item) => <li key={item}>{item}</li>}
+                    </List>
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />)
+    </script>
+</body>
+</html>
