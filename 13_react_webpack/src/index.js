@@ -1,5 +1,5 @@
 import React from 'react' // nap thu vien react
-import ReactDOM from 'react-dom' // nap thu vien react-dom
+import ReactDOM from 'react-dom/client' // nap thu vien react-dom
 
 // Tao component App
 function App() {
