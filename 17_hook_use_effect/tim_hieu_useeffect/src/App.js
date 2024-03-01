@@ -13,12 +13,10 @@ function App() {
   const [show, setShow] = useState(false);
 
   return (
-    <React.StrictMode>
     <div className="App" style={{padding: 36}}>
       {show && <Content/>}
       <button onClick={()=>{setShow(!show);}}>Toggle</button>
     </div>
-    </React.StrictMode>
 
   );
 }
