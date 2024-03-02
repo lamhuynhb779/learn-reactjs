@@ -3,6 +3,7 @@ import Content from './Content';
 import React from 'react';
 import Demo from './Demo';
 import Avatar from './Avatar';
+import FakeChat from './FakeChat';
 
 // hook useEffect được sử dụng để:
 // 1. Update DOM
@@ -18,14 +19,18 @@ function App() {
 
   const [showAvatar, setShowAvatar] = useState(false);
 
+  const [showFakeChat, setShowFakeChat] = useState(false);
+
   return (
     <div className="App" style={{padding: 36}}>
       {show && <Content/>}
       <button onClick={()=>{setShow(!show);}}>Toggle</button>
       <button onClick={()=>{setShowDemo(!showDemo);}}>Show demo</button>
       <button onClick={()=>{setShowAvatar(!showAvatar);}}>Show Avatar</button>
+      <button onClick={()=>{setShowFakeChat(!showAvatar);}}>Show Fake Chat</button>
       {showDemo && <Demo/>}
       {showAvatar && <Avatar/>}
+      {showFakeChat && <FakeChat/>}
     </div>
 
   );
