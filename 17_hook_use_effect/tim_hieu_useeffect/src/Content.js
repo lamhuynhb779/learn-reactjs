@@ -13,6 +13,7 @@ import {useEffect, useState} from 'react';
 // HÀNH VI CHUNG: 
 // 1. callback luôn được gọi sau khi component mounted
 // 2. cleanup function luôn được gọi trước khi component unmounted
+// 3. cleanup function luôn được gọi trước khi callback được gọi trừ lần mounted
 
 // => Mục đích chính của việc sử dụng useEffect là để đưa các xử lý logic phức tạp ra sau để ưu tiên việc re-render
 
