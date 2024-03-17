@@ -6,6 +6,7 @@ function App() {
     <div className="App" style={{padding: 39}}>
       <Button/>
       <Button primary/>
+      <Button primary disabled/>
     </div>
   );
 }
